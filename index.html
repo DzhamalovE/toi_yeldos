@@ -138,31 +138,6 @@
             color: #d49ea8;
             margin: 10px 0 5px;
         }
-
-        .guest-list {
-            margin-top: 20px;
-            text-align: left;
-            border-top: 1px solid #e0c8cc;
-            padding-top: 15px;
-        }
-
-        .guest-list h3 {
-            color: #b76e79;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .guest-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .guest-list li {
-            font-size: 12px;
-            color: #666;
-            padding: 5px 0;
-            border-bottom: 1px solid #f0e0e3;
-        }
     </style>
 </head>
 <body>
@@ -177,7 +152,7 @@
         <strong>тойымызға</strong> шақырамыз!
     </div>
     
-    <h2>👰 Аружан & 🤵 Айдос</h2>
+    <h2>🤵 Елдос & 👰 -------</h2>
     
     <div class="details">
         <p><strong>📅 Күні:</strong> 20 Маусым 2026</p>
@@ -205,11 +180,6 @@
     <div id="response"></div>
     
     <div class="ornament">✨ 💕 ✨</div>
-
-    <div class="guest-list">
-        <h3>📋 Қонақтар тізімі (келетіндер)</h3>
-        <ul id="guestList"></ul>
-    </div>
 </div>
 
 <script>
@@ -219,16 +189,9 @@
     // ✅ МҰНДА ХАБАРЛАМА КЕЛУІ КЕРЕКТІН БАРЛЫҚ АДАМНЫҢ CHAT ID (үтір арқылы жазылады)
     const CHAT_IDS = [
         '7489755304',   // Сіздің ID (Алтел Билайн)
-        '1262516460',    // Егер досыңыздың ID-сын білсеңіз, осыған қосыңыз
-        '1712796190',  // Тағы бір туысыңыздың ID-сы
-        // '987654321',  // Келіннің анасының ID-сы
+        '1712796190',  // Досыңыздың ID-сы (қосқыңыз келсе)
+        '1262516460',  // Тағы бір туысыңыз
     ];
-    
-    const STORAGE_KEY = 'wedding_guests';
-
-    window.onload = function() {
-        displayGuests();
-    };
 
     async function sendToTelegram() {
         const name = document.getElementById('guestName').value.trim();
@@ -293,13 +256,12 @@
         }
 
         if (successCount > 0) {
-            saveGuest({ name, phone, count, timestamp: new Date().toISOString() });
-            showResponse(`✅ Рахмет! Хабарлама ${successCount} адамға жіберілді. Сізді тойға күтеміз! 🎉`, 'success');
+            showResponse(`✅ Рахмет! Сізді тойға күтеміз! 🎉`, 'success');
             document.getElementById('guestName').value = '';
             document.getElementById('guestPhone').value = '';
             document.getElementById('guestCount').value = '1';
         } else {
-            showResponse('❌ Қате кетті! Хабарлама ешкімге жіберілмеді. Кейінірек қайталаңыз.', 'error');
+            showResponse('❌ Қате кетті! Кейінірек қайталаңыз.', 'error');
         }
 
         btn.disabled = false;
@@ -317,46 +279,7 @@
         }, 5000);
     }
 
-    function saveGuest(guest) {
-        let guests = getGuests();
-        guests.push(guest);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
-        displayGuests();
-    }
-
-    function getGuests() {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        return saved ? JSON.parse(saved) : [];
-    }
-
-    function displayGuests() {
-        const guests = getGuests();
-        const guestListEl = document.getElementById('guestList');
-        
-        if (guests.length === 0) {
-            guestListEl.innerHTML = '<li style="color:#999;">Әзірге ешкім растаған жоқ</li>';
-            return;
-        }
-
-        const recentGuests = guests.slice().reverse().slice(0, 10);
-        guestListEl.innerHTML = recentGuests.map(guest => `
-            <li>
-                <strong>${escapeHtml(guest.name)}</strong> — ${escapeHtml(guest.phone)}<br>
-                <small>👥 ${guest.count} адам • ${new Date(guest.timestamp).toLocaleString('kk-KZ')}</small>
-            </li>
-        `).join('');
-    }
-
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
+    // Enter батырмасымен жіберу
     document.querySelectorAll('input').forEach(input => {
         input.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
