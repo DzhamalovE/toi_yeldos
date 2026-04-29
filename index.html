@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="kk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тойға шақыру | Айдос & Аружан</title>
+    <title>Тойға шақыру | Елдос & ------</title>
     <style>
         body {
             margin: 0;
@@ -16,7 +15,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .card {
             background: white;
             padding: 30px;
@@ -26,26 +25,26 @@
             max-width: 100%;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
+
         h1 {
             color: #b76e79;
             font-size: 24px;
             margin-bottom: 10px;
         }
-        
+
         h2 {
             margin-top: 10px;
             color: #333;
             font-size: 20px;
         }
-        
+
         .invite-text {
             font-size: 16px;
             margin: 15px 0;
             color: #555;
             line-height: 1.5;
         }
-        
+
         .details {
             text-align: left;
             background: #fef6f7;
@@ -53,22 +52,22 @@
             border-radius: 12px;
             margin: 15px 0;
         }
-        
+
         .details p {
             margin: 8px 0;
             color: #444;
             font-size: 14px;
         }
-        
+
         .details strong {
             color: #b76e79;
         }
-        
+
         .form-group {
             text-align: left;
             margin: 15px 0;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
@@ -76,7 +75,7 @@
             font-weight: bold;
             font-size: 14px;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 10px;
@@ -86,12 +85,12 @@
             font-family: inherit;
             box-sizing: border-box;
         }
-        
+
         .form-group input:focus {
             outline: none;
             border-color: #b76e79;
         }
-        
+
         button {
             margin-top: 10px;
             padding: 10px 20px;
@@ -104,17 +103,17 @@
             transition: all 0.3s ease;
             width: 100%;
         }
-        
+
         button:hover {
             background: #a05560;
             transform: scale(1.02);
         }
-        
+
         button:disabled {
             background: #ccc;
             cursor: not-allowed;
         }
-        
+
         #response {
             margin-top: 15px;
             font-size: 14px;
@@ -123,41 +122,41 @@
             border-radius: 10px;
             min-height: 40px;
         }
-        
+
         .response-success {
             background: #d4edda;
             color: #155724;
         }
-        
+
         .response-error {
             background: #f8d7da;
             color: #721c24;
         }
-        
+
         .ornament {
             font-size: 24px;
             color: #d49ea8;
             margin: 10px 0 5px;
         }
-        
+
         .guest-list {
             margin-top: 20px;
             text-align: left;
             border-top: 1px solid #e0c8cc;
             padding-top: 15px;
         }
-        
+
         .guest-list h3 {
             color: #b76e79;
             font-size: 16px;
             margin-bottom: 10px;
         }
-        
+
         .guest-list ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .guest-list li {
             font-size: 12px;
             color: #666;
@@ -166,213 +165,206 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="card">
-        <div class="ornament">🌸 🤍 🌸</div>
-
-        <h1>Құрметті қонақ!</h1>
-
-        <div class="invite-text">
-            Сізді біздің қуанышымызбен бөлісуге арналған<br>
-            <strong>тойымызға</strong> шақырамыз!
-        </div>
-
-        <h2>👰 Аружан & 🤵 Айдос</h2>
-
-        <div class="details">
-            <p><strong>📅 Күні:</strong> 25 Тамыз 2026</p>
-            <p><strong>⏰ Уақыты:</strong> 18:00</p>
-            <p><strong>📍 Мекенжай:</strong> Астана қаласы, "Royal Hall"</p>
-        </div>
-
-        <!-- Қонақ ақпаратын толтыру формасы -->
-        <div class="form-group">
-            <label>👤 Аты-жөніңіз *</label>
-            <input type="text" id="guestName" placeholder="Мысалы: Асан Асанов" required>
-        </div>
-
-        <div class="form-group">
-            <label>📞 Телефон нөмірі *</label>
-            <input type="tel" id="guestPhone" placeholder="Мысалы: +7 777 123 4567" required>
-        </div>
-
-        <div class="form-group">
-            <label>👥 Бірге келетіндер саны</label>
-            <input type="number" id="guestCount" placeholder="1" value="1" min="1" max="10">
-        </div>
-
-        <button onclick="sendToTelegram()">✅ Тойға келетінімді растаймын</button>
-
-        <div id="response"></div>
-
-        <div class="ornament">✨ 💕 ✨</div>
-
-        <!-- Келетіндер тізімі (локальды сақтау) -->
-        <div class="guest-list" id="guestListSection">
-            <h3>📋 Қонақтар тізімі (келетіндер)</h3>
-            <ul id="guestList"></ul>
-        </div>
+<div class="card">
+    <div class="ornament">🌸 🤍 🌸</div>
+    
+    <h1>Құрметті қонақ(тар)!</h1>
+    
+    <div class="invite-text">
+        Сізді біздің қуанышымызбен бөлісуге арналған<br>
+        <strong>тойымызға</strong> шақырамыз!
+    </div>
+    
+    <h2>👰 Аружан & 🤵 Айдос</h2>
+    
+    <div class="details">
+        <p><strong>📅 Күні:</strong> 20 Маусым 2026</p>
+        <p><strong>⏰ Уақыты:</strong> 20:00</p>
+        <p><strong>📍 Мекенжай:</strong> Газалкент қаласы, "Royal Hall"</p>
     </div>
 
-    <script>
-        // Telegram Bot конфигурациясы
-        // НАЗАР! Төмендегі мәліметтерді өз ботыңызбен ауыстырыңыз
-        const BOT_TOKEN = '8442580206:AAHmjNXrPKr5yN5SyMyaB-nLWXWiq1smbfk'; // Бот токеніңізді қойыңыз
-        const CHAT_ID = '7489755304'; // Өз CHAT_ID-ңізді қойыңыз
+    <div class="form-group">
+        <label>👤 Аты-жөніңіз *</label>
+        <input type="text" id="guestName" placeholder="Мысалы: Асан Асанов" required>
+    </div>
 
-        // Жергілікті сақтау (LocalStorage) кілті
-        const STORAGE_KEY = 'wedding_guests';
+    <div class="form-group">
+        <label>📞 Телефон нөмірі *</label>
+        <input type="tel" id="guestPhone" placeholder="Мысалы: +7 777 123 4567" required>
+    </div>
 
-        // Бет жүктелгенде сақталған қонақтарды көрсету
-        window.onload = function() {
-            displayGuests();
-        };
+    <div class="form-group">
+        <label>👥 Бірге келетіндер саны</label>
+        <input type="number" id="guestCount" placeholder="1" value="1" min="1" max="10">
+    </div>
+    
+    <button onclick="sendToTelegram()">✅ Тойға келетінімді растаймын</button>
+    
+    <div id="response"></div>
+    
+    <div class="ornament">✨ 💕 ✨</div>
 
-        async function sendToTelegram() {
-            const name = document.getElementById('guestName').value.trim();
-            const phone = document.getElementById('guestPhone').value.trim();
-            const count = document.getElementById('guestCount').value;
+    <div class="guest-list">
+        <h3>📋 Қонақтар тізімі (келетіндер)</h3>
+        <ul id="guestList"></ul>
+    </div>
+</div>
 
-            // Валидация
-            if (!name || !phone) {
-                showResponse('❗ Аты-жөніңіз бен телефон нөміріңізді толтырыңыз!', 'error');
-                return;
-            }
+<script>
+    // ✅ СІЗДІҢ БОТ ТОКЕНІҢІЗ
+    const BOT_TOKEN = '8442580206:AAHmjNXrPKr5yN5SyMyaB-nLWXWiq1smbfk';
+    
+    // ✅ МҰНДА ХАБАРЛАМА КЕЛУІ КЕРЕКТІН БАРЛЫҚ АДАМНЫҢ CHAT ID (үтір арқылы жазылады)
+    const CHAT_IDS = [
+        '7489755304',   // Сіздің ID (Алтел Билайн)
+        '1262516460',    // Егер досыңыздың ID-сын білсеңіз, осыған қосыңыз
+        '1712796190',  // Тағы бір туысыңыздың ID-сы
+        // '987654321',  // Келіннің анасының ID-сы
+    ];
+    
+    const STORAGE_KEY = 'wedding_guests';
 
-            // Телефон нөмірін тексеру
-            const phoneRegex = /^[\+\d\s\-\(\)]{10,20}$/;
-            if (!phoneRegex.test(phone)) {
-                showResponse('❗ Дұрыс телефон нөмірін енгізіңіз (мысалы: +77771234567)', 'error');
-                return;
-            }
+    window.onload = function() {
+        displayGuests();
+    };
 
-            // Кнопканы блоктау (қайталап жібермеу үшін)
-            const btn = event.target;
-            btn.disabled = true;
-            btn.textContent = '⏰ Жіберілуде...';
+    async function sendToTelegram() {
+        const name = document.getElementById('guestName').value.trim();
+        const phone = document.getElementById('guestPhone').value.trim();
+        const count = document.getElementById('guestCount').value;
 
-            // Telegram арқылы жіберетін хабар
-            const message = `🎉 ТОЙҒА ҚАТЫСУШЫ 🎉
+        if (!name || !phone) {
+            showResponse('❗ Аты-жөніңіз бен телефон нөміріңізді толтырыңыз!', 'error');
+            return;
+        }
+
+        const phoneRegex = /^[\+\d\s\-\(\)]{10,20}$/;
+        if (!phoneRegex.test(phone)) {
+            showResponse('❗ Дұрыс телефон нөмірін енгізіңіз (мысалы: +77771234567)', 'error');
+            return;
+        }
+
+        const btn = event.target;
+        btn.disabled = true;
+        btn.textContent = '⏰ Жіберілуде...';
+
+        const message = `🎉 ТОЙҒА ҚАТЫСУШЫ 🎉
 ━━━━━━━━━━━━━━━━━━━
 👤 Қонақ: ${name}
 📞 Телефон: ${phone}
-👥 Қосымша орын: ${count} адам
+👥 Бірге келетіндер: ${count} адам
 🎊 Той: Айдос & Аружан
 📅 Күні: 25 Тамыз 2026, 18:00
+📍 Мекенжай: Астана, Royal Hall
 ━━━━━━━━━━━━━━━━━━━
 ✅ ҚАТЫСАДЫ`;
 
+        let successCount = 0;
+        let errorCount = 0;
+
+        // Барлық адамға хабарлама жіберу
+        for (const chatId of CHAT_IDS) {
             try {
-                // Telegram Bot API арқылы хабар жіберу
                 const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        chat_id: CHAT_ID,
+                        chat_id: chatId,
                         text: message,
                         parse_mode: 'HTML'
                     })
                 });
 
                 const data = await response.json();
-
                 if (data.ok) {
-                    // Қонақты локальды сақтау
-                    saveGuest({
-                        name,
-                        phone,
-                        count,
-                        timestamp: new Date().toISOString()
-                    });
-
-                    showResponse('✅ Рахмет! Сізді тойға күтеміз! 🎉', 'success');
-                    document.getElementById('guestName').value = '';
-                    document.getElementById('guestPhone').value = '';
-                    document.getElementById('guestCount').value = '1';
+                    successCount++;
                 } else {
-                    throw new Error('Хабар жіберілмеді');
+                    errorCount++;
+                    console.error(`Chat ID ${chatId} қатесі:`, data);
                 }
             } catch (error) {
-                console.error('Telegram қатесі:', error);
-                showResponse('❌ Қате кетті! Кейінірек қайталаңыз. Немесе +7 XXX XXX-XX-XX нөміріне хабарласыңыз', 'error');
-            } finally {
-                // Кнопканы қайта белсендіру
-                btn.disabled = false;
-                btn.textContent = '✅ Тойға келетінімді растаймын';
+                errorCount++;
+                console.error(`Chat ID ${chatId} жіберу қатесі:`, error);
             }
         }
 
-        // Хабарлама көрсету
-        function showResponse(message, type) {
-            const responseDiv = document.getElementById('response');
-            responseDiv.textContent = message;
-            responseDiv.className = type === 'success' ? 'response-success' : 'response-error';
-
-            setTimeout(() => {
-                responseDiv.textContent = '';
-                responseDiv.className = '';
-            }, 5000);
+        if (successCount > 0) {
+            saveGuest({ name, phone, count, timestamp: new Date().toISOString() });
+            showResponse(`✅ Рахмет! Хабарлама ${successCount} адамға жіберілді. Сізді тойға күтеміз! 🎉`, 'success');
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestPhone').value = '';
+            document.getElementById('guestCount').value = '1';
+        } else {
+            showResponse('❌ Қате кетті! Хабарлама ешкімге жіберілмеді. Кейінірек қайталаңыз.', 'error');
         }
 
-        // Қонақты LocalStorage-қа сақтау
-        function saveGuest(guest) {
-            let guests = getGuests();
-            guests.push(guest);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
-            displayGuests();
+        btn.disabled = false;
+        btn.textContent = '✅ Тойға келетінімді растаймын';
+    }
+
+    function showResponse(message, type) {
+        const responseDiv = document.getElementById('response');
+        responseDiv.textContent = message;
+        responseDiv.className = type === 'success' ? 'response-success' : 'response-error';
+        
+        setTimeout(() => {
+            responseDiv.textContent = '';
+            responseDiv.className = '';
+        }, 5000);
+    }
+
+    function saveGuest(guest) {
+        let guests = getGuests();
+        guests.push(guest);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+        displayGuests();
+    }
+
+    function getGuests() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : [];
+    }
+
+    function displayGuests() {
+        const guests = getGuests();
+        const guestListEl = document.getElementById('guestList');
+        
+        if (guests.length === 0) {
+            guestListEl.innerHTML = '<li style="color:#999;">Әзірге ешкім растаған жоқ</li>';
+            return;
         }
 
-        // Сақталған қонақтарды алу
-        function getGuests() {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            return saved ? JSON.parse(saved) : [];
-        }
-
-        // Қонақтар тізімін көрсету
-        function displayGuests() {
-            const guests = getGuests();
-            const guestListEl = document.getElementById('guestList');
-
-            if (guests.length === 0) {
-                guestListEl.innerHTML = '<li style="color:#999;">Әзірге ешкім растаған жоқ</li>';
-                return;
-            }
-
-            // Соңғы 10 қонақты көрсету (кері ретпен - жаңасы жоғарыда)
-            const recentGuests = guests.slice().reverse().slice(0, 10);
-            guestListEl.innerHTML = recentGuests.map(guest => `
+        const recentGuests = guests.slice().reverse().slice(0, 10);
+        guestListEl.innerHTML = recentGuests.map(guest => `
             <li>
                 <strong>${escapeHtml(guest.name)}</strong> — ${escapeHtml(guest.phone)}<br>
                 <small>👥 ${guest.count} адам • ${new Date(guest.timestamp).toLocaleString('kk-KZ')}</small>
             </li>
         `).join('');
-        }
+    }
 
-        // XSS шабуылдарынан қорғау
-        function escapeHtml(str) {
-            if (!str) return '';
-            return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            });
-        }
-
-        // Enter батырмасымен жіберу
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendToTelegram();
-                }
-            });
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
         });
-    </script>
+    }
+
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendToTelegram();
+            }
+        });
+    });
+</script>
 
 </body>
-
 </html>
