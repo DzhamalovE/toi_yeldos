@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тойға шақыру | Елдос & ------</title>
+    <title>Тойға шақыру | Елдос & 👰</title>
     <style>
         body {
             margin: 0;
@@ -21,7 +21,7 @@
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            width: 400px;
+            width: 450px;
             max-width: 100%;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
@@ -35,7 +35,7 @@
         h2 {
             margin-top: 10px;
             color: #333;
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .invite-text {
@@ -48,19 +48,49 @@
         .details {
             text-align: left;
             background: #fef6f7;
-            padding: 12px;
+            padding: 15px;
             border-radius: 12px;
             margin: 15px 0;
         }
 
         .details p {
-            margin: 8px 0;
+            margin: 10px 0;
             color: #444;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .details strong {
             color: #b76e79;
+        }
+
+        /* Карта стилі */
+        .map-container {
+            margin: 15px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px 16px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .map-button:hover {
+            background: #45a049;
         }
 
         .form-group {
@@ -93,7 +123,7 @@
 
         button {
             margin-top: 10px;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
             border-radius: 10px;
             background: #b76e79;
@@ -152,13 +182,25 @@
         <strong>тойымызға</strong> шақырамыз!
     </div>
     
-    <h2>🤵 Елдос & 👰 -------</h2>
+    <h2>👰‍♀️ ??? & 🤵 Елдос</h2>
     
     <div class="details">
         <p><strong>📅 Күні:</strong> 20 Маусым 2026</p>
         <p><strong>⏰ Уақыты:</strong> 20:00</p>
-        <p><strong>📍 Мекенжай:</strong> Газалкент қаласы, "Royal Hall"</p>
+        <p><strong>📍 Мекенжай:</strong> Ғазалкент қаласы, "Royal Hall"</p>
     </div>
+
+    <!-- Google Maps картасы -->
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/place/41%C2%B031'27.2%22N+69%C2%B041'11.8%22E/@41.5240439,69.6861566,338m/data=!3m1!1e3!4m4!3m3!8m2!3d41.524233!4d69.686611?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D"
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+    <a href="https://www.google.com/maps/place/41%C2%B031'27.2%22N+69%C2%B041'11.8%22E/@41.5240439,69.6861566,338m/data=!3m1!1e3!4m4!3m3!8m2!3d41.524233!4d69.686611?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-button">
+        🗺️ Картадан ашу
+    </a>
 
     <div class="form-group">
         <label>👤 Аты-жөніңіз *</label>
@@ -186,11 +228,10 @@
     // ✅ СІЗДІҢ БОТ ТОКЕНІҢІЗ
     const BOT_TOKEN = '8442580206:AAHmjNXrPKr5yN5SyMyaB-nLWXWiq1smbfk';
     
-    // ✅ МҰНДА ХАБАРЛАМА КЕЛУІ КЕРЕКТІН БАРЛЫҚ АДАМНЫҢ CHAT ID (үтір арқылы жазылады)
+    // ✅ МҰНДА ХАБАРЛАМА КЕЛУІ КЕРЕКТІН БАРЛЫҚ АДАМНЫҢ CHAT ID
     const CHAT_IDS = [
         '7489755304',   // Сіздің ID (Алтел Билайн)
-        '1712796190',  // Досыңыздың ID-сы (қосқыңыз келсе)
-        '1262516460',  // Тағы бір туысыңыз
+        // Басқа ID-ларды осыған қосыңыз
     ];
 
     async function sendToTelegram() {
@@ -203,12 +244,6 @@
             return;
         }
 
-        const phoneRegex = /^[\+\d\s\-\(\)]{10,20}$/;
-        if (!phoneRegex.test(phone)) {
-            showResponse('❗ Дұрыс телефон нөмірін енгізіңіз (мысалы: +77771234567)', 'error');
-            return;
-        }
-
         const btn = event.target;
         btn.disabled = true;
         btn.textContent = '⏰ Жіберілуде...';
@@ -218,16 +253,14 @@
 👤 Қонақ: ${name}
 📞 Телефон: ${phone}
 👥 Бірге келетіндер: ${count} адам
-🎊 Той: Елдос & ------
+🎊 Той: Елдос & Жұбайы
 📅 Күні: 20 Маусым 2026, 20:00
-📍 Мекенжай: Газалкент, Royal Hall
+📍 Мекенжай: Ғазалкент, "Royal Hall"
 ━━━━━━━━━━━━━━━━━━━
 ✅ ҚАТЫСАДЫ`;
 
         let successCount = 0;
-        let errorCount = 0;
 
-        // Барлық адамға хабарлама жіберу
         for (const chatId of CHAT_IDS) {
             try {
                 const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -245,13 +278,9 @@
                 const data = await response.json();
                 if (data.ok) {
                     successCount++;
-                } else {
-                    errorCount++;
-                    console.error(`Chat ID ${chatId} қатесі:`, data);
                 }
             } catch (error) {
-                errorCount++;
-                console.error(`Chat ID ${chatId} жіберу қатесі:`, error);
+                console.error(error);
             }
         }
 
@@ -279,7 +308,6 @@
         }, 5000);
     }
 
-    // Enter батырмасымен жіберу
     document.querySelectorAll('input').forEach(input => {
         input.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
